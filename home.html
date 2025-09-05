@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to CookChiefs</h1>
+    <p>Your cozy home for delicious food recipes.</p>
+    <div class="cta-group">
+      <a class="btn" href="/accounts/signup/">Get Started</a>
+      <a class="btn btn-outline" href="/recipes/">Browse Recipes</a>
+    </div>
+  </div>
+</section>
+<section class="features grid">
+  <div class="card">
+    <h3>Discover</h3>
+    <p>Explore community recipes from home cooks and seasoned chefs.</p>
+  </div>
+  <div class="card">
+    <h3>Create</h3>
+    <p>Post your own recipes with ingredients and step-by-step instructions.</p>
+  </div>
+  <div class="card">
+    <h3>Save</h3>
+    <p>Keep your favorites safe in one place. Your kitchen companion.</p>
+  </div>
+</section>
+{% endblock %}

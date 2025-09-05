@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CookChiefs</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">🍳 CookChiefs</a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/recipes/">Recipes</a>
+        {% if user.is_authenticated %}
+          <a href="/recipes/create/" class="btn">+ New Recipe</a>
+          <form method="post" action="/accounts/logout/">{% csrf_token %}
+            <button class="linklike" type="submit">Logout</button>
+          </form>
+        {% else %}
+          <a href="/accounts/login/" class="btn">Login</a>
+          <a href="/accounts/signup/" class="btn btn-outline">Sign Up</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    {% if messages %}
+      <div class="messages">
+        {% for m in messages %}<div class="message {{ m.tags }}">{{ m }}</div>{% endfor %}
+      </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© {{ now|date:"Y" }} CookChiefs — Share, save, and savor recipes at home.</p>
+    </div>
+  </footer>
+</body>
+</html>
